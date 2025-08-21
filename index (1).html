@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahi bala Volleyball Club - Professional Training Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1E40AF;
+            --secondary-color: #F59E0B;
+            --accent-color: #10B981;
+            --neutral-color: #6B7280;
+            --background-color: #F9FAFB;
+            --text-color: #111827;
+            --white: #FFFFFF;
+            --light-gray: #F3F4F6;
+            --border-color: #E5E7EB;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(30, 64, 175, 0.8), rgba(30, 64, 175, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23000" width="1200" height="800"/><rect fill="%23001122" x="0" y="0" width="1200" height="400"/><rect fill="%23002244" x="0" y="400" width="1200" height="400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        .btn-primary:hover {
+            background: #E59400;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--neutral-color);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--neutral-color);
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--neutral-color);
+            font-weight: 500;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Programs Section */
+        .programs {
+            background: var(--light-gray);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .program-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .program-card p {
+            color: var(--neutral-color);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-features {
+            list-style: none;
+            text-align: left;
+        }
+
+        .program-features li {
+            padding: 0.5rem 0;
+            color: var(--neutral-color);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .program-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            background: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: var(--light-gray);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: var(--neutral-color);
+            line-height: 1.6;
+        }
+
+        .coach-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--accent-color);
+        }
+
+        .coach-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .coach-card p {
+            color: var(--neutral-color);
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .testimonials .section-title {
+            color: white;
+        }
+
+        .testimonials .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            color: var(--neutral-color);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--light-gray);
+            border-radius: 10px;
+        }
+
+        .contact-details i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .contact-form {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .footer-section p,
+        .footer-section li {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .program-card,
+            .feature-card,
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-animate.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#home" class="logo">Shahi bala VC</a>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#programs" class="nav-link">Programs</a></li>
+                    <li><a href="#coaching" class="nav-link">Coaching Staff</a></li>
+                    <li><a href="#coaching" class="nav-link">Coaching Staff</a></li>
+                    <li><a href="#facilities" class="nav-link">Facilities</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#contact" class="nav-link">Contact Us</a></li>
+                </ul>
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Elevate Your Game at Shahi bala Volleyball Club</h1>
+            <p>Professional training for athletes of all levels</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Join Now</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title scroll-animate">About Shahi bala Volleyball Club</h2>
+            <p class="section-subtitle scroll-animate">Building champions through dedication, excellence, and teamwork</p>
+            
+            <div class="about-content">
+                <div class="about-text scroll-animate">
+                    <h3>Our Mission & Vision</h3>
+                    <p>At Shahi bala Volleyball Club, we are committed to developing not just exceptional volleyball players, but well-rounded individuals who embody the values of teamwork, discipline, and perseverance. Our mission is to provide world-class training that nurtures talent at every level.</p>
+                    
+                    <p>With over 15 years of experience in volleyball training, we have established ourselves as a premier academy that has produced numerous state and national level players. Our comprehensive approach combines technical skill development with mental conditioning and character building.</p>
+                    
+                    <p>We believe that volleyball is more than just a sport – it's a pathway to personal growth, leadership development, and lifelong friendships. Our core values of excellence, integrity, respect, and teamwork guide everything we do.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="500">0</span>
+                            <span class="stat-label">Students Trained</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="15">0</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="50">0</span>
+                            <span class="stat-label">Championships Won</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="25">0</span>
+                            <span class="stat-label">Professional Players</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-image scroll-animate">
+                    <img src="pictures/Training.jpeg" alt="Volleyball Training">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="section programs">
+        <div class="container">
+            <h2 class="section-title scroll-animate">Our Training Programs</h2>
+            <p class="section-subtitle scroll-animate">Comprehensive programs designed for every skill level and age group</p>
+            
+            <div class="programs-grid">
+                <div class="program-card scroll-animate">
+                    <div class="program-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Youth Development Program</h3>
+                    <p>Specially designed for athletes aged 15-25, focusing on fundamental skills, technique refinement, and competitive play preparation.</p>
+                    <ul class="program-features">
+                        <li>Basic to advanced skill development</li>
+                        <li>Physical conditioning and fitness</li>
+                        <li>Game strategy and tactics</li>
+                        <li>Mental toughness training</li>
+                        <li>Tournament preparation</li>
+                        <li>Leadership development</li>
+                    </ul>
+                </div>
+                
+                <div class="program-card scroll-animate">
+                    <div class="program-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Competitive Training</h3>
+                    <p>Intensive training program for serious athletes looking to compete at district, state, and national levels.</p>
+                    <ul class="program-features">
+                        <li>Advanced technical training</li>
+                        <li>Specialized position coaching</li>
+                        <li>Video analysis and feedback</li>
+                        <li>Strength and conditioning</li>
+                        <li>Sports psychology sessions</li>
+                        <li>Competition exposure</li>
+                    </ul>
+                </div>
+                
+                <div class="program-card scroll-animate">
+                    <div class="program-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Recreational Program</h3>
+                    <p>Perfect for beginners and those looking to play volleyball for fitness, fun, and social interaction.</p>
+                    <ul class="program-features">
+                        <li>Learn basic volleyball skills</li>
+                        <li>Improve fitness and coordination</li>
+                        <li>Make new friends</li>
+                        <li>Stress relief and fun</li>
+                        <li>Flexible scheduling</li>
+                        <li>All skill levels welcome</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="coaching" class="section why-choose">
+        <div class="container">
+            <h2 class="section-title scroll-animate">Why Choose Shahi bala Volleyball Club?</h2>
+            <p class="section-subtitle scroll-animate">Experience the difference that quality coaching and facilities make</p>
+            
+            <div class="features-grid">
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Professional Coaching Staff</h3>
+                    <p>Our certified coaches bring years of playing and coaching experience, with many having competed at national and international levels.</p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>State-of-the-Art Facilities</h3>
+                    <p>Train in our modern facility equipped with professional-grade courts, training equipment, and amenities designed for optimal performance.</p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Proven Track Record</h3>
+                    <p>Our students have achieved remarkable success in competitions, with many going on to represent their schools, colleges, and even national teams.</p>
+                </div>
+                
+                <div class="feature-card scroll-animate">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Comprehensive Training Approach</h3>
+                    <p>We focus on technical skills, physical fitness, mental toughness, and character development to create complete athletes and individuals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coaching Staff Section -->
+    <section id="coaching" class="section why-choose">
+        <div class="container">
+            <h2 class="section-title scroll-animate">Meet Our Coaching Staff</h2>
+            <p class="section-subtitle scroll-animate">Our dedicated team of experienced coaches is committed to your success.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card scroll-animate coach-card">
+                    <img src="pictures/coachali.jpg" alt="Ali shah">
+                    <h3>ALI SHAH</h3>
+                    <p>Head Coach</p>
+                    <p>Specializes in offensive strategies and player development. Over 20 years of coaching experience.</p>
+                    
+                </div>
+                <div class="feature-card scroll-animate coach-card">
+                    <img src="pictures/coachazhar.jpeg" alt="Azhar shah">
+                    <h3>AZHAR SHAH</h3>
+                    <p>Assistant Coach</p>
+                    <p>Focuses on defensive techniques and team coordination. Former professional player.</p>
+                    
+                </div>
+                <div class="feature-card scroll-animate coach-card">
+                    <img src="pictures/coachnoor.jpg" alt="Noor Rahman">
+                    <h3>Noor Rahman</h3>
+                    <p>Strength & Conditioning</p>
+                    <p>Develops personalized fitness plans for athletes. Certified sports nutritionist.</p>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="section programs">
+        <div class="container">
+            <h2 class="section-title scroll-animate">World-Class Facilities</h2>
+            <p class="section-subtitle scroll-animate">Train like a professional in our modern, well-equipped facility</p>
+            
+            <div class="programs-grid">
+                <div class="program-card scroll-animate">
+                    <div class="program-icon">
+                        <i class="fas fa-volleyball-ball"></i>
+                    </div>
+                    <h3>Professional Courts</h3>
+                    <p>Multiple indoor courts with professional-grade flooring, nets, and lighting systems that meet international standards.</p>
+                </div>
+                
+                <div class="program-card scroll-animate">
+                    <div class="program-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Fitness Center</h3>
+                    <p>Fully equipped gym with modern strength training equipment, cardio machines, and specialized volleyball training tools.</p>
+                </div>
+                
+                <div class="program-card scroll-animate">
+                    <div class="program-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Video Analysis Room</h3>
+                    <p>Advanced video analysis setup for technique review, game analysis, and performance improvement sessions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title scroll-animate">What Our Students Say</h2>
+            <p class="section-subtitle scroll-animate">Hear from our athletes and their families about their experience</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card scroll-animate">
+                    <p class="testimonial-text">"Joining Shahi bala Volleyball Club was the best decision I made for my volleyball career. The coaches are incredibly knowledgeable and supportive, and the training has taken my game to the next level."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">U</div>
+                        <div class="author-info">
+                            <h4>Uzair Shah</h4>
+                            <p>State Level Player</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card scroll-animate">
+                    <p class="testimonial-text">"The academy not only improved my daughter's volleyball skills but also helped build her confidence and leadership qualities. The coaches truly care about each student's development."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">I</div>
+                        <div class="author-info">
+                            <h4>Ismat Ullah</h4>
+                            <p>Parent</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card scroll-animate">
+                    <p class="testimonial-text">"I had no idea about gaming at first, but after joining this academy, I gained confidence, improved my skills, and transformed myself. Today, I proudly feel like a brand and an inspiration for others."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Awais Shah</h4>
+                            <p>State Level Player</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title scroll-animate">Get In Touch</h2>
+            <p class="section-subtitle scroll-animate">Ready to start your volleyball journey? Contact us today!</p>
+            
+            <div class="contact-content">
+                <div class="contact-info scroll-animate">
+                    <h3>Contact Information</h3>
+                    <p>We'd love to hear from you! Whether you're interested in joining our programs, have questions about our training methods, or want to schedule a facility tour, don't hesitate to reach out.</p>
+                    
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Address</strong><br>
+                                Shahi Bala DHA , Near masjid akram jan ustaz
+                                
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong><br>
+                                +92 3065048618<br>
+                                +92 3220578379
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong><br>
+                                syedbrother8ball@gmail.com<br>
+                                
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Training Hours</strong><br>
+                                Mon-Fri: 6:00 AM - 7:30 PM<br>
+                                Sat-Sun: 4:00 AM - 7:30 PM
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="contact-form scroll-animate">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="program">Program Interest</label>
+                            <select id="program" name="program" style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; font-family: inherit; font-size: 1rem;">
+                                <option value="">Select a program</option>
+                                <option value="youth">Youth Development Program</option>
+                                <option value="competitive">Competitive Training</option>
+                                <option value="recreational">Recreational Program</option>
+                                <option value="trial">Trial Session</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your volleyball experience and goals..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Shahi bala Volleyball Club</h3>
+                    <p>Dedicated to developing exceptional volleyball players and outstanding individuals through professional training, character building, and a commitment to excellence.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#coaching">Coaching Staff</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li><a href="#programs">Youth Development</a></li>
+                        <li><a href="#programs">Competitive Training</a></li>
+                        <li><a href="#programs">Recreational Program</a></li>
+                        <li><a href="#programs">Private Coaching</a></li>
+                        <li><a href="#programs">Summer Camps</a></li>
+                        <li><a href="#programs">Tournament Teams</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Shahi Bala DHA , Near masjid akram jan ustaz </p>
+                    <p><i class="fas fa-phone"></i> +92 3065048618</p>
+                    <p><i class="fas fa-envelope"></i> syedbrother8ball@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 6PM-7:30PM, Sat-Sun: 6PM-7:30PM</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Shahi bala Volleyball Club. All rights reserved. | Designed with passion for volleyball excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Animated counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current);
+                        setTimeout(updateCounter, 20);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Scroll animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.scroll-animate');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    
+                    // Trigger counter animation when stats section is visible
+                    if (entry.target.querySelector('.stat-number')) {
+                        animateCounters();
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all scroll-animate elements
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your interest! We will contact you soon.');
+            this.reset();
+        });
+
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
+
